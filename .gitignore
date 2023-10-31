@@ -28,3 +28,7 @@ gopath/
 .vagrant
 .idea
 /release-*
+
+.vscode/
+./**/.vscode
+host-local

@@ -17,6 +17,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"os"
 	"strings"
 
 	"github.com/containernetworking/cni/pkg/skel"
@@ -29,6 +30,9 @@ import (
 )
 
 func main() {
+
+	dns, _ := parseResolvConf("/etc/resolv.conf")
+	fmt.Fprintf(os.Stdout, "Prueba %v", []any{dns}...)
 	skel.PluginMain(cmdAdd, cmdCheck, cmdDel, version.All, bv.BuildString("host-local"))
 }
 
